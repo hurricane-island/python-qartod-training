@@ -20,34 +20,38 @@ time = cleaned_df["TIMESTAMP_ISO"].to_list()
 time_dt = pd.to_datetime(time)
 chlorophyll = cleaned_df["Chlorophyll_RFU"].to_list()
 
+#fig, ax = plt.subplots(figsize=(4, 3))
 
-fig, ax = plt.subplots(figsize=(4, 3))
+# plt.xlabel('Timestamp')
+# plt.ylabel('Chlorophyll (RFU)')
+# plt.title("Time series analysis example")
+# plt.xticks(rotation=45)
+# plt.ylim(0,1.5)
+# plt.xlim(datetime(2025,5,1,9,0), datetime(2025, 5, 10, 10, 0))
+# plt.gcf().autofmt_xdate() 
+# plt.axvspan(datetime(2025, 5, 1, 12, 0), datetime(2025, 5, 3, 12, 0), color='red', alpha=0.3)
+# plt.plot(time_dt, chlorophyll, color='r', linewidth=1.0, linestyle='-', label = 'chlorophyll') 
+# plt.legend(loc='upper right')
 
-plt.xlabel('Timestamp')
-plt.ylabel('Chlorophyll (RFU)')
-plt.title("Time series analysis example")
-plt.xticks(rotation=45)
-plt.ylim(0,1.5)
-plt.xlim(datetime(2025,5,1,9,0), datetime(2025, 5, 10, 10, 0))
-plt.gcf().autofmt_xdate() 
-# ax.xaxis.set_major_locator(mdates.DayLocator(0, interval=30)) #for this to work, need to convert back to datetime
-# ax.xaxis.set_major_formatter(mdates.DateFormatter('%d %m'))
-plt.axvspan(datetime(2025, 5, 1, 12, 0), datetime(2025, 5, 3, 12, 0), color='red', alpha=0.3)
+# plt.show()
+
+'''
+What if I want to show two series on the same plot?
+'''
+
+phycoerythrin = cleaned_df["BGA_PE_RFU"].to_list()
+
+# plt.xlabel('Timestamp')
+# plt.ylabel('RFU')
+# plt.title("Time series analysis example")
+# plt.xticks(rotation=45)
+# plt.ylim(0,1.5)
+# plt.xlim(datetime(2025,5,1,9,0), datetime(2025, 5, 10, 10, 0))
+# plt.gcf().autofmt_xdate() 
+# plt.plot(time_dt, chlorophyll, color='r', linewidth=1.0, linestyle='-', label = 'chlorophyll') 
+# plt.plot(time_dt, phycoerythrin, color='b', linewidth=1.0, linestyle='-', label = 'phycoerythrin')
+# plt.legend(loc='upper right')
+
+# plt.show()
 
 
-plt.plot(time_dt, chlorophyll, color='r', linewidth=1.0, linestyle='-', label = 'chlorophyll') 
-
-
-plt.legend(loc='upper right')
-plt.show()
-
-###check a daily trend?
-
-###Add another series
-
-###Add chlorophyll from Blynken
-
-###Subplots
-
-###fitting?, trends?
-###heat map?
