@@ -1,3 +1,8 @@
+'''
+WORK IN PROGRESS
+BOOLEANS AND FLAT LINE TEST
+'''
+
 # This is an introduction to Python. 
 # In Python, the main data types are:
     # int, float, str, bool, list, tuple, set, dict
