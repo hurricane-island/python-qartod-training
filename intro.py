@@ -1,3 +1,10 @@
+'''
+WORK IN PROGRESS 
+BOOLEANS 
+FLAT LINE TEST
+'''
+
+
 # This is an introduction to Python. 
 # In Python, the main data types are:
     # int, float, str, bool, list, tuple, set, dict
@@ -147,13 +154,6 @@ for index, item in enumerate(timestamp): #we want to go through
 #     return print(response)
 
 # flat_line_test(phycoerythrin_ex_data)
-
-
-
-
-       
-# Booleans : bool()
-# True or False
 
 
 
