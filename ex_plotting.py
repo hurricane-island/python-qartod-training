@@ -41,6 +41,7 @@ plt.plot(time_dt, chlorophyll, color='r', linewidth=1.0, linestyle='-', label = 
 
 plt.legend(loc='upper right')
 plt.show()
+plt.savefig('path/name.pdf') #example of saving the plot as a pdf
 
 ###check a daily trend?
 
@@ -49,6 +50,3 @@ plt.show()
 ###Add chlorophyll from Blynken
 
 ###Subplots
-
-###fitting?, trends?
-###heat map?
