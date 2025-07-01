@@ -7,7 +7,8 @@ QARTOD flags:
 1 = pass
 2 = not evaluated
 3 = suspect
-4= fail
+4 = fail
+9 = missing data
 '''
 from ioos_qc import qartod
 
