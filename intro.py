@@ -45,19 +45,22 @@ buoy_parameters_dict = {
     'Chlorophyll_RFU': column_5,
     'BGA_PE_RFU': column_6
 }
-#The keys are the names of the parameters in the raw data, 
-#and the values are the varibles we defined earlier with our naming convention.	
-#You can access the values in a dictionary using the keys
+
+'''
+The keys are the names of the parameters in the raw data, 
+and the values are the varibles we defined earlier with our naming convention.	
+You can access the values in a dictionary using the keys
+'''
 
 print(f"The parameters we are measuring are: {buoy_parameters_dict}")
 #To print only the values, add .values() to the end of the dictionary
 #To print only the keys, add .keys() to the end of the dictionary
-#To specify a specific key,  ####
-#To specify a specific value,  ####
 
-# Lists, tuples, and dictionaries are all examples of data structures in Python.
-# They can hold strings (like we have used above) and other data types like integers, floats, and booleans.
-# An integer is a whole number, a float is a number with a decimal point, and a boolean is either True or False.
+'''
+Lists, tuples, and dictionaries are all examples of data structures in Python.
+They can hold strings (like we have used above) and other data types like integers, floats, and booleans.
+An integer is a whole number, a float is a number with a decimal point, and a boolean is either True or False.
+'''
 
 # We will try to do a quality control check on some example data. 
 
@@ -69,8 +72,11 @@ USER_MIN = 5.0 #RFU, float
 
 chlorophyll_ex_data = [10.3, 68.1, 4.4, 71.9, 45.2, 12.5, 0.0, 100.0, 50.0, 5.0] #This is a list of example chlorophyll data in RFU
 
-# We are going to use a for loop to iterate through the chlorophyll data and check if the values are within the sensor and user limits.
-# We will use if-else statements to check the values and print a message if they are outside the sensor and user limits. 
+'''
+We are going to use a for loop to iterate through the chlorophyll data and check if the values are within the sensor and user limits.
+We will use if-else statements to check the values and print a message if they are outside the sensor and user limits. 
+'''
+
 for value in chlorophyll_ex_data: #This is a for loop that will iterate through each value in the chlorophyll_ex_data list
     if value > SENSOR_MAX or value < SENSOR_MIN:
         print(f"Fail sensor limits: {value} RFU") #This will print if the value is outside the sensor limits
@@ -79,7 +85,10 @@ for value in chlorophyll_ex_data: #This is a for loop that will iterate through 
     else:
         pass
 
-# Lets say if one value is outside the sensor limits, the data is not valid and we want to stop the loop.
+'''
+Lets say if one value is outside the sensor limits, the data is not valid and we want to stop the loop.
+'''
+
 for value in chlorophyll_ex_data: #This is a for loop that will iterate through each value in the chlorophyll_ex_data list
     if value > SENSOR_MAX or value < SENSOR_MIN:
         break # This will stop the loop if the value is outside the sensor limits
@@ -88,21 +97,20 @@ for value in chlorophyll_ex_data: #This is a for loop that will iterate through 
     else:
         pass
 
-### PUT BOOLEANS HERE ###
-# Booleans are a data type that can only be True or False.
-# They are often used in if-else statements to control the flow of the program. 
-# For example, we can use a boolean to check if the data is valid or not.
-
-# You can also write functions that perform defined tasks
-# The inputs to the function are called an arguments, and the variables within the function are called parameters.
+'''
+You can also write functions that perform defined tasks
+The inputs to the function are called an arguments, and the variables within the function are called parameters.
+'''
 
 #python has some useful built in functions that can be found in the python library
-phycoerythrin_ex_data = [1, 0, 2, 3, 4, 0] #Imagine we got all the same values
+phycoerythrin_ex_data = [0, 0, 0, 0, 0, 0] #Imagine we got all the same values
 print(len(phycoerythrin_ex_data)) #len() and print() are built in python functions. len() tells you the length of the list
 
-#to write your own function, you first need to define it
-#the raw data provides dates and time like this: 4/24/25 17:00
-#but we want the time to be formatted like this 2025-04-24T17:00:00Z which is called ISO 8601 formatting
+'''
+to write your own function, you first need to define it
+the raw data provides dates and time like this: 4/24/25 17:00
+but we want the time to be formatted like this 2025-04-24T17:00:00Z which is called ISO 8601 formatting
+'''
 
 from datetime import datetime, timezone #datetime is a python module that allows us to use functions and constants from the module
 
@@ -141,7 +149,7 @@ for index, item in enumerate(timestamp): #we want to go through
 
 # def flat_line_test(phycoerythrin_ex_data):
 #     for x in phycoerythrin_ex_data:
-#         if not isinstance(x, int):
+#         if not isinstance(x, int) is True:
 #             break
 #         phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
 #         if x != next(phycoerythrin_ex_data):
@@ -155,5 +163,33 @@ for index, item in enumerate(timestamp): #we want to go through
 
 # flat_line_test(phycoerythrin_ex_data)
 
+phycoerythrin_ex_data = [2, 4, 1]
 
+flat_line = False
+def flat_line_test(phycoerythrin_ex_data):
+    for x in phycoerythrin_ex_data:
+        if type(x) != int:
+            print("Non-integer values in data")
+            break
+        else: 
+            pass
+        phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
+        if x == next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data):
+            flat_line = False
+        else:
+            flat_line = True
+    return flat_line
+
+print(flat_line_test(phycoerythrin_ex_data))       
+
+phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
+print(next(phycoerythrin_ex_data), next(phycoerythrin_ex_data))
+print(next(phycoerythrin_ex_data))
+
+### PUT BOOLEANS HERE ###
+'''
+Booleans are a data type that can only be True or False.
+They are often used in if-else statements to control the flow of the program. 
+For example, we can use a boolean to check if the data is valid or not.
+'''
 
