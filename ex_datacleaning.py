@@ -5,6 +5,7 @@ from datetime import datetime
 
 file_path = '/Users/adelejordan/Downloads/Wynken_SondeValues_2025-05-14T22-45.csv'
 site_info = pd.read_csv(file_path, header=0) #reads all of the columns in file
+print(site_info.head())
 
 #for our purposes, I only want to read select columns where the column headers are in the second row
 df = pd.read_csv(file_path, header=1, usecols =  ["TIMESTAMP", "External_Temp", "Conductivity_us", "SpConductivity_us", "Salinity", "Chlorophyll_ugL", "Chlorophyll_RFU", "BGA_PE_RFU", "BGA_PE_ugL"])
