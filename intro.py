@@ -19,6 +19,7 @@ buoy_parameters_tuple = (column_1, column_2, column_3, column_4, column_5, colum
 
 #You can remove items from a list using the remove() method
 buoy_parameters_list.remove(column_1)
+
 print("The parameters we are measuring are: ", buoy_parameters_list) #You can print using the print() function
 
 #You can add items to a list using the append() or insert() method 
