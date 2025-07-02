@@ -107,6 +107,11 @@ phycoerythrin_ex_data = [0, 0, 0, 0, 0, 0] #Imagine we got all the same values
 print(len(phycoerythrin_ex_data)) #len() and print() are built in python functions. len() tells you the length of the list
 
 '''
+Booleans are a data type that can only be True or False.
+They are often used in if-else statements to control the flow of the program. 
+'''
+
+'''
 to write your own function, you first need to define it
 the raw data provides dates and time like this: 4/24/25 17:00
 but we want the time to be formatted like this 2025-04-24T17:00:00Z which is called ISO 8601 formatting
@@ -145,6 +150,7 @@ def time_format(list):
 for index, item in enumerate(timestamp): #we want to go through
     time_format(timestamp)
 
+
 ### Gotta be a better way to do this! ###
 
 # def flat_line_test(phycoerythrin_ex_data):
@@ -165,31 +171,23 @@ for index, item in enumerate(timestamp): #we want to go through
 
 phycoerythrin_ex_data = [2, 4, 1]
 
-flat_line = False
-def flat_line_test(phycoerythrin_ex_data):
-    for x in phycoerythrin_ex_data:
-        if type(x) != int:
-            print("Non-integer values in data")
-            break
-        else: 
-            pass
-        phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
-        if x == next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data):
-            flat_line = False
-        else:
-            flat_line = True
-    return flat_line
+# flat_line = False
+# def flat_line_test(phycoerythrin_ex_data):
+#     for x in phycoerythrin_ex_data:
+#         if type(x) != int:
+#             print("Non-integer values in data")
+#             break
+#         else: 
+#             pass
+#         phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
+#         if x == next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data) and x != next(phycoerythrin_ex_data):
+#             flat_line = False
+#         else:
+#             flat_line = True
+#     return flat_line
 
-print(flat_line_test(phycoerythrin_ex_data))       
+# print(flat_line_test(phycoerythrin_ex_data))       
 
-phycoerythrin_ex_data = iter(phycoerythrin_ex_data)
-print(next(phycoerythrin_ex_data), next(phycoerythrin_ex_data))
-print(next(phycoerythrin_ex_data))
 
-### PUT BOOLEANS HERE ###
-'''
-Booleans are a data type that can only be True or False.
-They are often used in if-else statements to control the flow of the program. 
-For example, we can use a boolean to check if the data is valid or not.
-'''
+
 
