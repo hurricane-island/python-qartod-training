@@ -40,5 +40,4 @@ plt.savefig('path/name.pdf') #example of saving the plot as a pdf
 
 ###Subplots
 
-###fitting?, trends?
 ###heat map?
