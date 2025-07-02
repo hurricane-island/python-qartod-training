@@ -43,6 +43,7 @@ plt.legend(loc='upper right')
 plt.show()
 plt.savefig('path/name.pdf') #example of saving the plot as a pdf
 
+
 ###check a daily trend?
 
 ###Add another series
@@ -50,3 +51,8 @@ plt.savefig('path/name.pdf') #example of saving the plot as a pdf
 ###Add chlorophyll from Blynken
 
 ###Subplots
+
+# fig, ax1 = plt.subplots(figsize=(4, 3))
+# ax1_set_xlabel = 
+# ax1_set_ylabel = 
+# ax2 = fig.add_axes

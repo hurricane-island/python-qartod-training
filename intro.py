@@ -86,10 +86,10 @@ for value in chlorophyll_ex_data: #This is a for loop that will iterate through 
     else:
         pass
 
-### PUT BOOLEANS HERE ###
+
 # Booleans are a data type that can only be True or False.
 # They are often used in if-else statements to control the flow of the program. 
-# For example, we can use a boolean to check if the data is valid or not.
+
 
 # You can also write functions that perform defined tasks
 # The inputs to the function are called an arguments, and the variables within the function are called parameters.
@@ -132,7 +132,7 @@ def time_format(list):
     timestamp_iso = datetime.isoformat(timestamp_dt) #this will change the values to iso format
     return print(timestamp_iso) 
 
-for index, item in enumerate(timestamp): #we want to go through
+for index, item in enumerate(timestamp): #we want to go through each item in the list timestamp
     time_format(timestamp)
 
 ### Gotta be a better way to do this! ###
@@ -157,8 +157,7 @@ for index, item in enumerate(timestamp): #we want to go through
 
 
        
-# Booleans : bool()
-# True or False
+
 
 
 

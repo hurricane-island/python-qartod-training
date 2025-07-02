@@ -44,7 +44,12 @@ output_file_path = '/Users/adelejordan/Downloads/Wynken_SondeValues_Cleaned_2025
 df.to_csv(output_file_path, index=False)
 
 
+# how you could sort by species
+# sorted_by_species = df.sort_values(['header'])
 
+# slice
+# copy
+# merge
 
 
 
