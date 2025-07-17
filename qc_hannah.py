@@ -50,17 +50,23 @@ duplicate_count = df.duplicated().sum() #this will count the number of duplicate
 # 4 = fail 
 # 9 = missing data
 
+'''
+This is a function from the ioos library to check if the data falls within the expected range
+'''
 results_gr = qartod.gross_range_test(
     inp = chlorophyll,
     fail_span = [0, 100],
     suspect_span = [0, 5]
 )
-suspect_fail_data = (results_gr>2).sum()
+suspect_fail_data = (results_gr>2).sum() #How many of the results are greater than 2 (suspect or fail)
 print(suspect_fail_data)
 
 # print(df.describe())
 
 # Results Spike
+'''
+This is a function from the ioos library to check if the data decreases or increases more rapidly than is realistic
+'''
 results_spike = qartod.spike_test(
     inp = chlorophyll,
     suspect_threshold = 0.25,
@@ -69,7 +75,7 @@ results_spike = qartod.spike_test(
     
 )
 suspect_fail_spike = (results_spike>2).sum()
-print("suspect or fail", suspect_fail_spike)
-print("fail", (results_spike==4).sum())
+print("suspect or fail", suspect_fail_spike) #How many of the results are suspect or fail
+print("fail", (results_spike==4).sum()) #How many of the results failed
 
 
