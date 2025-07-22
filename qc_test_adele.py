@@ -6,6 +6,7 @@ from ioos_qc.streams import PandasStream
 from ioos_qc.results import collect_results, CollectedResult, collect_results_list, collect_results_dict
 from ioos_qc.stores import PandasStore
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 
 #1. Getting data to test
@@ -103,28 +104,39 @@ def plot_qc_results(df, time_col, var_col, qc_test_col, title):
     plt.legend()
     plt.show()
 
-plot_qc_results(new_df, 'time', 'External_Temp', 'External_Temp_qartod_gross_range_test', 'QC Test for Temp')
+#plot_qc_results(new_df, 'time', 'External_Temp', 'External_Temp_qartod_gross_range_test', 'QC Test for Temp')
 
 '''
-Still working on the climatology test
+#6 Running the climatology test
 '''
+x = len(data['TIMESTAMP_ISO'])
+
+new_config = qartod.ClimatologyConfig(members = None)
+params = {
+    'tspan': [pd.to_datetime(data['TIMESTAMP_ISO'][0]), data['TIMESTAMP_ISO'][x-1]], #timespan you would like climatology test to run
+    'vspan' : [0.56, 13.3], # outside this range will be flagged as suspect
+    'fspan': [0.56, 22], # outside this range will be flagged as fail
+    'zspan' : None, # depth span
+    'period' : None # the period you choose to run the climatology test over, if included need to change the tspan
+    }
+    
+new_config.add(**params)
+
+results_cc = qartod.climatology_test(
+            config = new_config,
+            inp = data["External_Temp"],
+            tinp = data["TIMESTAMP_ISO"],
+            zinp = data['Depth']
+)
+
+data['external_temp_climatology_test'] = results_cc #adds the climatology test flags to the dataframe 
+
+#plot_qc_results(data, 'TIMESTAMP_ISO', 'External_Temp', 'external_temp_climatology_test', 'Climatology Test for Temp')
 
 
-# config_new = '''
-#         streams:
-#             External_Temp:
-#                 qartod:
-#                     climatology_test:
-#                         config: [{tspan:(0, 13), fspan: (0,10), vspan: (0,5)]
-# '''
 
-# cc = ClimatologyConfig(config_new)
-# results_ct = qartod.climatology_test(
-#     config = ClimatologyConfig(new_try),
-#     inp = data["External_Temp"],
-#     tinp = data["TIMESTAMP_ISO"],
-#     zinp = data['Depth']
-# )
+
+
 
 
 
