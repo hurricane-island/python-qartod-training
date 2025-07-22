@@ -131,6 +131,7 @@ results_cc = qartod.climatology_test(
 
 data['external_temp_climatology_test'] = results_cc #adds the climatology test flags to the dataframe 
 
+#7 Plotting the climatology test results
 #plot_qc_results(data, 'TIMESTAMP_ISO', 'External_Temp', 'external_temp_climatology_test', 'Climatology Test for Temp')
 
 
