@@ -57,9 +57,3 @@ def time_format():
     response = datetime.now().isoformat()   #changes to isoformat, helpful b/c hydrosphere data in isoformat
     return print(response)
 time_format()
-
-
-
-# Quality Control Test - Climatology 
-
-

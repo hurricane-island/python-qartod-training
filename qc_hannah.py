@@ -64,9 +64,9 @@ print(suspect_fail_data)
 # print(df.describe())
 
 # Results Spike
-'''
-This is a function from the ioos library to check if the data decreases or increases more rapidly than is realistic
-'''
+
+# This is a function from the IOOS library to check if the data decreases or
+# increases more rapidly than is realistic
 results_spike = qartod.spike_test(
     inp = chlorophyll,
     suspect_threshold = 0.25,

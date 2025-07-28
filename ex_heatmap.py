@@ -1,17 +1,15 @@
-'''
-work in progress
-'''
-
-import pandas as pd
-from pandas import DataFrame, read_csv
-import numpy as np
+"""
+Heatmap visualization rasterizing time series data
+"""
 from datetime import datetime
+from pandas import DataFrame, read_csv, to_datetime
+import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import ticker
 import matplotlib.dates as mdates
 
 file_path = '/Users/adelejordan/Downloads/Wynken_SondeValues_Cleaned_2025-05-14T22-45.csv'
-cleaned_df = pd.read_csv(file_path, header=0)
+cleaned_df = read_csv(file_path, header=0)
 #print(cleaned_df.head())
 
 #print(cleaned_df.describe()) #The describe function provides summary statistics on each column in the dataframe 
@@ -24,7 +22,7 @@ day = [timestamp_str.day for timestamp_str in timestamp_dt]
 hour = [timestamp_str.hour for timestamp_str in timestamp_dt]
 #print(hour[1])
 
-data = pd.DataFrame({
+data = DataFrame({
     'day': day,
     'hour': hour,
     'Chlorophyll': cleaned_df["Chlorophyll_RFU"].to_list()
@@ -32,16 +30,12 @@ data = pd.DataFrame({
 
 print(data.head())
 
-
 plt.figure(figsize=(4,3))
 plt.imshow(data, cmap='viridis', vmin = 0, vmax = 1)
 plt.colorbar()
 plt.show()
 
-
-
-
-# time_dt = pd.to_datetime(time)
+# time_dt = to_datetime(time)
 # months = mdates.MonthLocator()
 # hours = mdates.HourLocator()
 
